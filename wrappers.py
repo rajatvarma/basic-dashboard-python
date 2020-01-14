@@ -8,12 +8,37 @@ def create_note(path, t, c):
     os.chdir(path)
     add_note(t, c)
 
-def read_notes(path):
+def create_task(path, t, c):
     os.chdir(path)
-    with open('notes.json', 'r') as f:
-        notes = json.load(f)
-        for i in notes:
-            print(notes[i])
+    add_task(t, c)
+
+
+
+
+def read_notes(path, isNotes, isTasks):
+    os.chdir(path)
+    if isNotes:
+        fileName = 'notes.json'
+    if isTasks:
+        fileName = 'tasks.json'    
+    with open(fileName, 'r') as f:
+        output = json.load(f)
+    return output
+
+
+def add_task(t, c):
+    try:
+        with open('tasks.json', 'r+') as data_file:
+            tasks = json.load(data_file)
+            count = len(tasks['tasks'])
+            tasks['tasks'].update({count+1:{t:c}})
+        with open('tasks.json', 'w') as data_file:
+            json.dump(tasks, data_file)
+    except:
+        with open('tasks.json', 'r+') as f:
+            json.dump({'tasks':{1:{t:c}}}, f)
+
+
 
 def add_note(t, c):
     try:

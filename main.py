@@ -1,8 +1,7 @@
 import actions
-import wrappers
 import os
 
-dashboard_name = "Epic"
+dashboard_name = "Rajat's"
 
 cwd = os.getcwd()
 info_dir = cwd+'\prfiles'
@@ -29,6 +28,7 @@ while True:
                     print(i + " : " + str(response[i])+"%")
                 else:
                     print(i + " : " + str(response[i])+"°C")
+        
         elif user_action_choice == 2:
             keyword = input("Enter a keyword for the search: ")
             print("Please wait while results are fetched...")
@@ -39,7 +39,7 @@ while True:
                 for i in response:
                     print(i[0], i[1])
         elif user_action_choice == 3:
-            r_or_c = input("Press 1 to read existing notes or press 2 to create a new note")
+            r_or_c = input("Press 1 to create a note or press 2 to read existing notes")
             if r_or_c == "1":
                 actions.notes(info_dir, c=True)
             elif r_or_c == "2":
@@ -49,5 +49,11 @@ while True:
         elif user_action_choice == 5:
             print("Come back soon!")
             break
+        print()
+        print()
     except:
-        print("Oh no! We asked you for the option number, but you gave us", user_action_choice, "! Try again with the option number.")
+        print()
+        print("Oh no! We asked you for the option number, but you gave us", user_action_choice, "Try again with the option number.")
+        print()
+
+
