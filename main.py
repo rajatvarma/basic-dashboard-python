@@ -7,11 +7,10 @@ dashboard_name = "Epic"
 cwd = os.getcwd()
 info_dir = cwd+'\prfiles'
 
-
 print("Welcome to", dashboard_name, "Dashboard, your one program for all daily tasks.")
 print("Please wait while we set things up...")
 print("What would you like to do today?")
-'''
+
 while True:
     print("1. Check the weather")
     print("2. Get the most important headlines")
@@ -52,8 +51,3 @@ while True:
             break
     except:
         print("Oh no! We asked you for the option number, but you gave us", user_action_choice, "! Try again with the option number.")
-'''
-
-
-actions.notes(info_dir, True)
-wrappers.read_notes(info_dir)
